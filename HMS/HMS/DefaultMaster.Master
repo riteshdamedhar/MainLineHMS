@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultMaster.master.cs" Inherits="HMS.DefaultMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="CSS/fontfamily.css" rel="stylesheet" />
+    <link href="CSS/default.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="CSS/fonts.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="JS/jquery.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+            <div id="header-wrapper">
+                <div id="header" class="container">
+                    <div id="logo">
+                        <a href="#">Hospital Management System</a>
+                    </div>
+                    <div id="banner">
+                        <a href="#" class="image">
+                            <img src="images/pic01.jpg" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+            <div id="menu-wrapper">
+                <div id="menu" class="container">
+                    <ul>
+                        <li id="LoginItem"><a href="Login.aspx">Login</a></li>
+                        <li id="AboutUsItem"><a href="AboutUs.aspx">About Us</a></li>
+                        <li id="ContactUsItem"><a href="ContactUs.aspx">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- end #menu -->
+            </div>
+            <div id="page" class="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <div id="footer-wrapper">
+            <div id="footer" class="container">
+                <div id="copyright" class="container">
+                    <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,5 @@
+F:\GitHub Repository\MainLineHMS\HMS\HMS\bin\HMS.dll
+F:\GitHub Repository\MainLineHMS\HMS\HMS\bin\HMS.pdb
+F:\GitHub Repository\MainLineHMS\HMS\HMS\obj\Debug\HMS.csprojResolveAssemblyReference.cache
+F:\GitHub Repository\MainLineHMS\HMS\HMS\obj\Debug\HMS.dll
+F:\GitHub Repository\MainLineHMS\HMS\HMS\obj\Debug\HMS.pdb
