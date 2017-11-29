@@ -11,7 +11,7 @@ namespace HMS
 {
 
 
-    public partial class Login
+    public partial class ContactUs
     {
     }
 }
