@@ -3,7 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    This is My Login Page
+    <table>
+        <tr>
+            <td>STart Up</td>
+        </tr>
+    </table>
 
     <script type="text/javascript">
 
