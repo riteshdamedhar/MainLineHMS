@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace HMS
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class ReceptionMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

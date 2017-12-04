@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,19 +59,42 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Bootstrap\css\bootstrap.css" />
+    <Content Include="Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bootstrap\js\bootstrap.js" />
+    <Content Include="Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Bootstrap\js\npm.js" />
     <Content Include="ContactUs.aspx" />
+    <Content Include="CSS\bootstrap-grid.css" />
+    <Content Include="CSS\bootstrap-grid.min.css" />
+    <Content Include="CSS\bootstrap-reboot.css" />
+    <Content Include="CSS\bootstrap-reboot.min.css" />
+    <Content Include="CSS\bootstrap-theme.css" />
+    <Content Include="CSS\bootstrap-theme.min.css" />
+    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\bootstrap.min.css" />
     <Content Include="CSS\fontfamily.css" />
     <Content Include="CSS\default.css" />
     <Content Include="CSS\fonts.css" />
     <Content Include="CSS\fonts\fontawesome-social-webfont.svg" />
     <Content Include="CSS\fonts\fontawesome-webfont.svg" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Images\bg01.png" />
+    <Content Include="Images\Doctor.jpg" />
+    <Content Include="Images\Medical center.jpg" />
     <Content Include="Images\pic01.jpg" />
     <Content Include="Images\pic02.jpg" />
     <Content Include="Images\pic03.jpg" />
     <Content Include="Images\pic04.jpg" />
     <Content Include="Images\pic05.jpg" />
     <Content Include="index.html" />
+    <Content Include="JS\bootstrap.bundle.js" />
+    <Content Include="JS\bootstrap.bundle.min.js" />
+    <Content Include="JS\bootstrap.js" />
+    <Content Include="JS\bootstrap.min.js" />
     <Content Include="JS\jquery-ui.js" />
     <Content Include="JS\jquery-ui.min.js" />
     <Content Include="JS\jquery.blockUI.js" />
@@ -78,6 +102,7 @@
     <Content Include="JS\jquery.timepicker.min.js" />
     <Content Include="license.txt" />
     <Content Include="Login.aspx" />
+    <Content Include="Reception\PatientRegistration.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
@@ -111,6 +136,20 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceptionMaster.Master.cs">
+      <DependentUpon>ReceptionMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReceptionMaster.Master.designer.cs">
+      <DependentUpon>ReceptionMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\PatientRegistration.aspx.cs">
+      <DependentUpon>PatientRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\PatientRegistration.aspx.designer.cs">
+      <DependentUpon>PatientRegistration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,6 +167,31 @@
     <Content Include="CSS\fonts\fontawesome-webfont.woff" />
     <Content Include="CSS\fonts\FontAwesome.otf" />
     <Content Include="DefaultMaster.Master" />
+    <Content Include="ReceptionMaster.Master" />
+    <Content Include="JS\bootstrap.bundle.js.map" />
+    <Content Include="JS\bootstrap.bundle.min.js.map" />
+    <Content Include="JS\bootstrap.js.map" />
+    <Content Include="JS\bootstrap.min.js.map" />
+    <Content Include="CSS\bootstrap-grid.css.map" />
+    <Content Include="CSS\bootstrap-grid.min.css.map" />
+    <Content Include="CSS\bootstrap-reboot.css.map" />
+    <Content Include="CSS\bootstrap-reboot.min.css.map" />
+    <Content Include="CSS\bootstrap.css.map" />
+    <Content Include="CSS\bootstrap.min.css.map" />
+    <Content Include="CSS\bootstrap-theme.css.map" />
+    <Content Include="CSS\bootstrap-theme.min.css.map" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="CSS\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="Bootstrap\css\bootstrap.css.map" />
+    <Content Include="Bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -137,7 +201,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Doctor\" />
-    <Folder Include="Reception\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
