@@ -19,7 +19,7 @@ namespace HMS.Reception
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            PatientBAO obj = new PatientBAO();  // Business Layer class whihc will take care for operation
+            PatientBAO obj = new PatientBAO();  // Business Layer class which will take care for operation
 
             PatientInfo pa = new PatientInfo(); // Entiry Supporting class to travl my form data
 
@@ -42,6 +42,7 @@ namespace HMS.Reception
             obj.SavePatient(pa);
 
             Page.ClientScript.RegisterStartupScript(Page.GetType(), "Success","alert('Saved Successfully')",true);
+            Response.Redirect("~/Reception/OPDPatientList.aspx");
         }
     }
 }

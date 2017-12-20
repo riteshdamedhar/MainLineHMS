@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationAdminBAO.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="MedicineBAO.cs" />
     <Compile Include="PatientBAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

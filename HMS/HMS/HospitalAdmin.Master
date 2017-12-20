@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultMaster.master.cs" Inherits="HMS.DefaultMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HospitalAdmin.Master.cs" Inherits="HMS.HospitalAdminMaster" %>
 
 <!DOCTYPE html>
 
@@ -31,14 +31,14 @@
             </nav>
             <!-- end #menu -->
         </div>
-        <div class="container col-md-12" style="min-height:550px;">
+        <div class="container col-md-12">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
 
         <div id="footer-wrapper" class="col-md-12">
-            <div id="footer" style="margin:auto;">
-                <div id="copyright" style="margin:auto;text-align:center">
+            <div id="footer" class="container">
+                <div id="copyright" class="container">
                     <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
                 </div>
             </div>

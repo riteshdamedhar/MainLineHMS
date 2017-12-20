@@ -1,16 +1,17 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultMaster.master.cs" Inherits="HMS.DefaultMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DoctorMaster.Master.cs" Inherits="HMS.DoctorMaster" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <%--<link href="CSS/fontfamily.css" rel="stylesheet" />
+    <link href="CSS/fontfamily.css" rel="stylesheet" />
     <link href="CSS/default.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="CSS/fonts.css" rel="stylesheet" type="text/css" media="all" />--%>
+    <link href="CSS/fonts.css" rel="stylesheet" type="text/css" media="all" />
     <script src="JS/jquery.min.js"></script>
-    <script src="Bootstrap/js/bootstrap.js"></script>
-    <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script src="JS/bootstrap.min.js"></script>
+    <link href="CSS/bootstrap.min.css" rel="stylesheet" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -23,22 +24,35 @@
                         <a class="navbar-brand" href="#" style="color: white">Hospital management</a>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li id="LoginItem"><a href="Login.aspx" style="color: white">Login</a></li>
-                        <li id="AboutUsItem"><a href="AboutUs.aspx" style="color: white">About Us</a></li>
-                        <li id="ContactUsItem"><a href="ContactUs.aspx" style="color: white">Contact Us</a></li>
+
+                        <li id="liHome"><a href="../Doctor/DoctorHome.aspx" style="color: white">HOME</a></li>
+                        <li id="liRegisterPatient"><a href="../Doctor/OPDPatient.aspx" style="color: white">OPD LIST</a></li>
+                        <li id="liLogout"><a href="#" style="color: white">LOGOUT</a></li>
                     </ul>
                 </div>
             </nav>
             <!-- end #menu -->
         </div>
+        <!-- end #menu -->
+
         <div class="container col-md-12" style="min-height:550px;">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <p>
+                </p>
             </asp:ContentPlaceHolder>
         </div>
 
+
+       <%-- <div id="footer-wrapper" class="col-md-12">
+            <div id="footer" class="container">
+                <div id="copyright" class="container">
+                    <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+                </div>
+            </div>
+        </div>--%>
         <div id="footer-wrapper" class="col-md-12">
             <div id="footer" style="margin:auto;">
-                <div id="copyright" style="margin:auto;text-align:center">
+                <div id="copyright" class="container">
                     <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
                 </div>
             </div>

@@ -59,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="HospitalAdminPages\ApplicationAdminLogin.aspx" />
+    <Content Include="ApplicationAdmin\AdminHome.aspx" />
+    <Content Include="ApplicationAdmin\HospitalManagements.aspx" />
     <Content Include="Bootstrap\css\bootstrap-theme.css" />
     <Content Include="Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Bootstrap\css\bootstrap.css" />
@@ -82,6 +85,14 @@
     <Content Include="CSS\fonts\fontawesome-social-webfont.svg" />
     <Content Include="CSS\fonts\fontawesome-webfont.svg" />
     <Content Include="CSS\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Doctor\DoctorHome.aspx" />
+    <Content Include="Doctor\OPDPatient.aspx" />
+    <Content Include="HospitalAdminLogin.aspx" />
+    <Content Include="HospitalAdminPages\HospitalHome.aspx" />
+    <Content Include="HospitalAdminPages\ManageDoctors.aspx" />
+    <Content Include="HospitalAdminPages\ManageMedicineCatelog.aspx" />
+    <Content Include="HospitalAdminPages\ManagePatient.aspx" />
+    <Content Include="HospitalAdminPages\ManageReception.aspx" />
     <Content Include="Images\bg01.png" />
     <Content Include="Images\Doctor.jpg" />
     <Content Include="Images\Medical center.jpg" />
@@ -90,7 +101,6 @@
     <Content Include="Images\pic03.jpg" />
     <Content Include="Images\pic04.jpg" />
     <Content Include="Images\pic05.jpg" />
-    <Content Include="index.html" />
     <Content Include="JS\bootstrap.bundle.js" />
     <Content Include="JS\bootstrap.bundle.min.js" />
     <Content Include="JS\bootstrap.js" />
@@ -100,9 +110,13 @@
     <Content Include="JS\jquery.blockUI.js" />
     <Content Include="JS\jquery.min.js" />
     <Content Include="JS\jquery.timepicker.min.js" />
-    <Content Include="license.txt" />
     <Content Include="Login.aspx" />
+    <Content Include="Reception\ChangePassword.aspx" />
+    <Content Include="Reception\OPDPatientList.aspx" />
+    <Content Include="Reception\PatientList.aspx" />
     <Content Include="Reception\PatientRegistration.aspx" />
+    <Content Include="Reception\ReceptionHome.aspx" />
+    <Content Include="Reception\ReceptionProfile.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
@@ -114,6 +128,27 @@
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="HospitalAdminPages\ApplicationAdminLogin.aspx.cs">
+      <DependentUpon>ApplicationAdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ApplicationAdminLogin.aspx.designer.cs">
+      <DependentUpon>ApplicationAdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationAdmin\AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApplicationAdmin\AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationAdmin\HospitalManagements.aspx.cs">
+      <DependentUpon>HospitalManagements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApplicationAdmin\HospitalManagements.aspx.designer.cs">
+      <DependentUpon>HospitalManagements.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,12 +156,82 @@
     <Compile Include="ContactUs.aspx.designer.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ApplicationAdminMaster.Master.cs">
+      <DependentUpon>ApplicationAdminMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApplicationAdminMaster.Master.designer.cs">
+      <DependentUpon>ApplicationAdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\DoctorHome.aspx.designer.cs">
+      <DependentUpon>DoctorHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\OPDPatient.aspx.cs">
+      <DependentUpon>OPDPatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\OPDPatient.aspx.designer.cs">
+      <DependentUpon>OPDPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalAdmin.Master.cs">
+      <DependentUpon>HospitalAdmin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdmin.Master.designer.cs">
+      <DependentUpon>HospitalAdmin.Master</DependentUpon>
+    </Compile>
     <Compile Include="DefaultMaster.Master.cs">
       <DependentUpon>DefaultMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DefaultMaster.Master.designer.cs">
       <DependentUpon>DefaultMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalAdminLogin.aspx.cs">
+      <DependentUpon>HospitalAdminLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdminLogin.aspx.designer.cs">
+      <DependentUpon>HospitalAdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalAdminPages\HospitalHome.aspx.cs">
+      <DependentUpon>HospitalHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdminPages\HospitalHome.aspx.designer.cs">
+      <DependentUpon>HospitalHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManageDoctors.aspx.cs">
+      <DependentUpon>ManageDoctors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManageDoctors.aspx.designer.cs">
+      <DependentUpon>ManageDoctors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManageMedicineCatelog.aspx.cs">
+      <DependentUpon>ManageMedicineCatelog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManageMedicineCatelog.aspx.designer.cs">
+      <DependentUpon>ManageMedicineCatelog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManagePatient.aspx.cs">
+      <DependentUpon>ManagePatient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManagePatient.aspx.designer.cs">
+      <DependentUpon>ManagePatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManageReception.aspx.cs">
+      <DependentUpon>ManageReception.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HospitalAdminPages\ManageReception.aspx.designer.cs">
+      <DependentUpon>ManageReception.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -136,6 +241,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DoctorMaster.Master.cs">
+      <DependentUpon>DoctorMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoctorMaster.Master.designer.cs">
+      <DependentUpon>DoctorMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="ReceptionMaster.Master.cs">
       <DependentUpon>ReceptionMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,12 +255,47 @@
     <Compile Include="ReceptionMaster.Master.designer.cs">
       <DependentUpon>ReceptionMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Reception\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\OPDPatientList.aspx.cs">
+      <DependentUpon>OPDPatientList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\OPDPatientList.aspx.designer.cs">
+      <DependentUpon>OPDPatientList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\PatientList.aspx.cs">
+      <DependentUpon>PatientList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\PatientList.aspx.designer.cs">
+      <DependentUpon>PatientList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reception\PatientRegistration.aspx.cs">
       <DependentUpon>PatientRegistration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Reception\PatientRegistration.aspx.designer.cs">
       <DependentUpon>PatientRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\ReceptionHome.aspx.cs">
+      <DependentUpon>ReceptionHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\ReceptionHome.aspx.designer.cs">
+      <DependentUpon>ReceptionHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reception\ReceptionProfile.aspx.cs">
+      <DependentUpon>ReceptionProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\ReceptionProfile.aspx.designer.cs">
+      <DependentUpon>ReceptionProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -192,6 +339,9 @@
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="HospitalAdmin.Master" />
+    <Content Include="DoctorMaster.Master" />
+    <Content Include="ApplicationAdminMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -199,9 +349,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Doctor\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{b7c2048b-ebb0-4c99-9aa1-d87e4cfdd70c}</Project>

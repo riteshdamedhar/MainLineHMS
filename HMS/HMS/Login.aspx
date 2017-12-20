@@ -35,24 +35,38 @@
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
+    <table class="table table-bordered" style="width:500px;margin:auto;margin-top:20px !important;">
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="User Name"></asp:Label></td>
             <td>
-                <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtUserName" runat="server" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label></td>
             <td>
-                <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                <asp:Button ID="btnLogin" runat="server" Text="Login" />
+            <td>
+                <asp:Label ID="Label3" runat="server" Text="User Type"></asp:Label></td>
+            <td>
+                <asp:DropDownList ID="ddlUserType" runat="server" CssClass="form-control">
+                    <asp:ListItem Value="--Select--" Text="--Select--"></asp:ListItem>
+                    <asp:ListItem Value="Doctor" Text="Doctor"></asp:ListItem>
+                    <asp:ListItem Value="Reception" Text="Reception"></asp:ListItem>
+                </asp:DropDownList>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <asp:Button ID="btnogin" runat="server" Text="Login" CssClass="btn btn-primary" OnClick="btnogin_Click"/>
+                <br />
+                <asp:LinkButton ID="lnkForgetPassword" runat="server">Forget Password</asp:LinkButton>
             </td>
         </tr>
     </table>

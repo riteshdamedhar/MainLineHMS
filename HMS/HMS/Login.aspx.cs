@@ -13,5 +13,17 @@ namespace HMS
         {
             
         }
+
+        protected void btnogin_Click(object sender, EventArgs e)
+        {
+            if(ddlUserType.SelectedValue=="Doctor")
+            {
+                Response.Redirect("~/Doctor/DoctorHome.aspx");
+            }
+            else if(ddlUserType.SelectedValue=="Reception")
+            {
+                Response.Redirect("~/Reception/ReceptionHome.aspx");
+            }
+        }
     }
 }
