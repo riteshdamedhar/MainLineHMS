@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,19 @@ namespace HMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] != null)
+            {
+                UserLogin user = (UserLogin)Session["UserObject"];
+                if (user.TypeOfUser == UserType.ReceptionUser)
+                {
+                    Response.Redirect("~/Reception/ReceptionHome.aspx");
+                }
+               else if(user.TypeOfUser==UserType.DoctorUser)
+                {
+                    Response.Redirect("~/Doctor/DoctorHome.aspx");
+                }
 
+            }
         }
     }
 }

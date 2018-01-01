@@ -21,19 +21,19 @@ namespace HMS.HospitalAdmin
         {
             if (hdnOperationType.Value == "Insert")
             {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = @"Data source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True";
+              //  SqlConnection con = new SqlConnection();
+              //  con.ConnectionString = @"Data source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True";
 
-                con.Open();
-                string query = "insert into tblMedicine(MedicineName,MedicineCategory,Remark) values('" + txtMedicineName.Text + "','" + txtMedicineCategory.Text + "','" + txtRemark.Text + "')";
+             //   con.Open();
+             //   string query = "insert into tblMedicine(MedicineName,MedicineCategory,Remark) values('" + txtMedicineName.Text + "','" + txtMedicineCategory.Text + "','" + txtRemark.Text + "')";
 
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = query;
+             // SqlCommand cmd = new SqlCommand();
+             //cmd.Connection = con;
+             //cmd.CommandText = query;
 
-                int Result = cmd.ExecuteNonQuery();
+             //int Result = cmd.ExecuteNonQuery();
 
-                con.Close();
+             // con.Close();
 
                 lblMessage.Text = "SAVED SUCCESSFULLY";
                 ClearForm();

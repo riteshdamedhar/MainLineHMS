@@ -44,6 +44,7 @@
     <Compile Include="MedicineBAO.cs" />
     <Compile Include="PatientBAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceptionBAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">

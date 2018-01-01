@@ -59,7 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
-    <Content Include="HospitalAdminPages\ApplicationAdminLogin.aspx" />
+    <Content Include="ApplicationAdminLogin.aspx" />
     <Content Include="ApplicationAdmin\AdminHome.aspx" />
     <Content Include="ApplicationAdmin\HospitalManagements.aspx" />
     <Content Include="Bootstrap\css\bootstrap-theme.css" />
@@ -128,11 +128,11 @@
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
-    <Compile Include="HospitalAdminPages\ApplicationAdminLogin.aspx.cs">
+    <Compile Include="ApplicationAdminLogin.aspx.cs">
       <DependentUpon>ApplicationAdminLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="HospitalAdminPages\ApplicationAdminLogin.aspx.designer.cs">
+    <Compile Include="ApplicationAdminLogin.aspx.designer.cs">
       <DependentUpon>ApplicationAdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ApplicationAdmin\AdminHome.aspx.cs">
