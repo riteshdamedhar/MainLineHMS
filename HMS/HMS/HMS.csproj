@@ -85,6 +85,8 @@
     <Content Include="CSS\fonts\fontawesome-social-webfont.svg" />
     <Content Include="CSS\fonts\fontawesome-webfont.svg" />
     <Content Include="CSS\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="CSS\jquery-ui.min.css" />
+    <Content Include="Doctor\AddPrescription.aspx" />
     <Content Include="Doctor\DoctorHome.aspx" />
     <Content Include="Doctor\OPDPatient.aspx" />
     <Content Include="HospitalAdminLogin.aspx" />
@@ -94,6 +96,7 @@
     <Content Include="HospitalAdminPages\ManagePatient.aspx" />
     <Content Include="HospitalAdminPages\ManageReception.aspx" />
     <Content Include="Images\bg01.png" />
+    <Content Include="Images\Calender.png" />
     <Content Include="Images\Doctor.jpg" />
     <Content Include="Images\Medical center.jpg" />
     <Content Include="Images\pic01.jpg" />
@@ -117,7 +120,9 @@
     <Content Include="Reception\PatientRegistration.aspx" />
     <Content Include="Reception\ReceptionHome.aspx" />
     <Content Include="Reception\ReceptionProfile.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +167,13 @@
     </Compile>
     <Compile Include="ApplicationAdminMaster.Master.designer.cs">
       <DependentUpon>ApplicationAdminMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor\AddPrescription.aspx.cs">
+      <DependentUpon>AddPrescription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doctor\AddPrescription.aspx.designer.cs">
+      <DependentUpon>AddPrescription.aspx</DependentUpon>
     </Compile>
     <Compile Include="Doctor\DoctorHome.aspx.cs">
       <DependentUpon>DoctorHome.aspx</DependentUpon>
@@ -342,6 +354,7 @@
     <Content Include="HospitalAdmin.Master" />
     <Content Include="DoctorMaster.Master" />
     <Content Include="ApplicationAdminMaster.Master" />
+    <None Include="Properties\PublishProfiles\LocalMachine.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -349,7 +362,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{b7c2048b-ebb0-4c99-9aa1-d87e4cfdd70c}</Project>

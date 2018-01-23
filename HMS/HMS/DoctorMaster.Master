@@ -8,9 +8,9 @@
     <link href="CSS/fontfamily.css" rel="stylesheet" />
     <link href="CSS/default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="CSS/fonts.css" rel="stylesheet" type="text/css" media="all" />
-    <script src="JS/jquery.min.js"></script>
-    <script src="JS/bootstrap.min.js"></script>
-    <link href="CSS/bootstrap.min.css" rel="stylesheet" />
+    <script src="../JS/jquery.min.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>

@@ -23,6 +23,10 @@ namespace HMS
                 {
                     Response.Redirect("~/Doctor/DoctorHome.aspx");
                 }
+                else if (user.TypeOfUser == UserType.HospitalAdmin)
+                {
+                    Response.Redirect("~/HospitalAdminPages/HospitalHome.aspx");
+                }
 
             }
         }

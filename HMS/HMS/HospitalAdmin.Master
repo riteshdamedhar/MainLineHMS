@@ -8,9 +8,19 @@
     <%--<link href="CSS/fontfamily.css" rel="stylesheet" />
     <link href="CSS/default.css" rel="stylesheet" type="text/css" media="all" />
     <link href="CSS/fonts.css" rel="stylesheet" type="text/css" media="all" />--%>
-    <script src="JS/jquery.min.js"></script>
-    <script src="Bootstrap/js/bootstrap.js"></script>
+    <script src="../JS/jquery.min.js"></script>
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+    <script src="../JS/jquery-ui.min.js"></script>
     <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="CSS/jquery-ui.min.css" rel="stylesheet" />
+     <script type="text/javascript">
+        //function buttonClick(buttonId) {
+        //    $("[id$=" + buttonId + "]").click();
+        //}
+        function buttonClickLogout() {
+            $("[id$=btnLogOut]").click();
+        }
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -23,9 +33,13 @@
                         <a class="navbar-brand" href="#" style="color: white">Hospital management</a>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li id="LoginItem"><a href="Login.aspx" style="color: white">Login</a></li>
-                        <li id="AboutUsItem"><a href="AboutUs.aspx" style="color: white">About Us</a></li>
-                        <li id="ContactUsItem"><a href="ContactUs.aspx" style="color: white">Contact Us</a></li>
+                        <li id="liHome"><a href="HospitalHome.aspx" style="color: white">Home</a></li>
+                        <li id="liDoctor"><a href="ManageDoctors.aspx" style="color: white">Doctor Mgt</a></li>
+                        <li id="liMedicine"><a href="ManageMedicineCatelog.aspx" style="color: white">Medicine Mgt</a></li>
+                        <li id="liPatient"><a href="ManagePatient.aspx" style="color: white">Patient Mgt</a></li>
+                        <li id="liReception"><a href="ManageReception.aspx" style="color: white">Reception Mgt</a></li>
+                        <li id="liLogout"><a href="#" onclick="buttonClickLogout()" style="color: white">LOGOUT</a></li>
+                        <asp:Button ID="btnLogOut" runat="server" Text="" Style="display: none" OnClick="btnLogOut_Click" />
                     </ul>
                 </div>
             </nav>

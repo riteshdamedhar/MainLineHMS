@@ -56,6 +56,7 @@
             <td>
                 <asp:DropDownList ID="ddlUserType" runat="server" CssClass="form-control">
                     <asp:ListItem Value="--Select--" Text="--Select--"></asp:ListItem>
+                    <asp:ListItem Value="HospitalAdmin" Text="HospitalAdmin"></asp:ListItem>
                     <asp:ListItem Value="Doctor" Text="Doctor"></asp:ListItem>
                     <asp:ListItem Value="Reception" Text="Reception"></asp:ListItem>
                 </asp:DropDownList>

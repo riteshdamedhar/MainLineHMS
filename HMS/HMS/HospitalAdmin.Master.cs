@@ -13,5 +13,14 @@ namespace HMS
         {
             
         }
+
+        protected void btnLogOut_Click(object sender, EventArgs e)
+        {
+
+            Session.Clear();
+            Session.Abandon();
+            Session.RemoveAll();
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }

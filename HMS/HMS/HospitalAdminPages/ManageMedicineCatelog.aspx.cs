@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using EntityLayer;
+using BusinessLayer;
 
 namespace HMS.HospitalAdmin
 {
@@ -19,47 +20,24 @@ namespace HMS.HospitalAdmin
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            if (hdnOperationType.Value == "Insert")
-            {
-              //  SqlConnection con = new SqlConnection();
-              //  con.ConnectionString = @"Data source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True";
-
-             //   con.Open();
-             //   string query = "insert into tblMedicine(MedicineName,MedicineCategory,Remark) values('" + txtMedicineName.Text + "','" + txtMedicineCategory.Text + "','" + txtRemark.Text + "')";
-
-             // SqlCommand cmd = new SqlCommand();
-             //cmd.Connection = con;
-             //cmd.CommandText = query;
-
-             //int Result = cmd.ExecuteNonQuery();
-
-             // con.Close();
-
-                lblMessage.Text = "SAVED SUCCESSFULLY";
-                ClearForm();
-
-            }
+            Medicine m = new Medicine();
+            m.FK_HospitalId = Convert.ToInt32(Session["HospitalId"]);
+            m.MedicineName = txtMedicineName.Text;
+            m.MedicineCategory = txtMedicineCategory.Text;
+            m.Remark = txtRemark.Text;
+            m.IsActive = 1;
+            m.CreatedBy = "Samyu";
+            m.ModifiedBy = "Samyu";
             if (hdnOperationType.Value == "Update")
             {
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = @"Data source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True";
-
-                con.Open();
-
-                string query = "update tblMedicine set MedicineName='" + txtMedicineName.Text + "',MedicineCategory='" + txtMedicineCategory.Text + "',Remark='" + txtRemark.Text + "' where Pk_Medicineid=" + hdnIdPK.Value;
-
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = query;
-
-                int Result = cmd.ExecuteNonQuery();
-
-                con.Close();
-
-                lblMessage.Text = "SAVED SUCCESSFULLY";
-                ClearForm();
-
+                m.PK_Medicineid = Convert.ToInt32(hdnIdPK.Value);
             }
+            MedicineBAO bao = new MedicineBAO();
+            bao.SaveMedicine(m);
+
+            lblMessage.Text = "SAVED SUCCESSFULLY";
+            ClearForm();
+
             FillGridView();
 
             pnlGrid.Visible = true;
@@ -74,13 +52,9 @@ namespace HMS.HospitalAdmin
         }
         public void FillGridView()
         {
-            SqlConnection con = new SqlConnection(@"Data source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True");
-            string query = "select * from tblMedicine";
-            SqlDataAdapter adapter = new SqlDataAdapter(query, con);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-
-            grdGridView.DataSource = dt;
+            MedicineBAO BAO = new MedicineBAO();
+            int id = Convert.ToInt32(Session["HospitalId"]);
+            grdGridView.DataSource = BAO.GetMedicineDetails(id);
             grdGridView.DataBind();
         }
 
@@ -105,20 +79,15 @@ namespace HMS.HospitalAdmin
             {
                 hdnOperationType.Value = "Update";
                 int pkid = Convert.ToInt32(e.CommandArgument);
-
                 hdnIdPK.Value = pkid.ToString();
-
-                SqlConnection con = new SqlConnection(@"Data source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True");
-                string query = "select * from tblMedicine where Pk_Medicineid=" + pkid;
-                SqlDataAdapter adapter = new SqlDataAdapter(query, con);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                if (dt.Rows.Count > 0)
+                MedicineBAO BAO = new MedicineBAO();
+                int id = Convert.ToInt32(Session["HospitalId"]);
+                Medicine obj = BAO.GetMedicineDetailsById(pkid, id);
+                if (obj != null)
                 {
-                    txtMedicineName.Text = dt.Rows[0]["MedicineName"].ToString();
-                    txtMedicineCategory.Text = dt.Rows[0]["MedicineCategory"].ToString();
-                    txtRemark.Text = dt.Rows[0]["Remark"].ToString();
+                    txtMedicineName.Text = obj.MedicineName;
+                    txtMedicineCategory.Text = obj.MedicineCategory;
+                    txtRemark.Text = obj.Remark;
                 }
                 pnlAddForm.Visible = true;
                 pnlGrid.Visible = false;
@@ -126,20 +95,10 @@ namespace HMS.HospitalAdmin
             if (e.CommandName == "DeleteField")
             {
                 int id = Convert.ToInt32(e.CommandArgument);
+                MedicineBAO BAO = new MedicineBAO();
 
-                SqlConnection con = new SqlConnection();
-                con.ConnectionString = @"Data source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True";
+                BAO.DeleteMedicine(id);
 
-                con.Open();
-                string query = "Delete from tblMedicine where Pk_Medicineid =" + id;
-
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = query;
-
-                int Result = cmd.ExecuteNonQuery();
-
-                con.Close();
                 FillGridView();
             }
         }

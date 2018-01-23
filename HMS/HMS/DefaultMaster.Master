@@ -11,6 +11,14 @@
     <script src="JS/jquery.min.js"></script>
     <script src="Bootstrap/js/bootstrap.js"></script>
     <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript">
+        //function buttonClick(buttonId) {
+        //    $("[id$=" + buttonId + "]").click();
+        //}
+        function buttonClickLogout() {
+            $("[id$=btnLogOut]").click();
+        }
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

@@ -52,6 +52,24 @@ namespace DataAccessLayer
             CloseConnection();
             return result;
         }
+        protected DataSet GetDataTablefromDBwithSP(string spName, List<SqlParameter> param)
+        {
+            int result = 0;
+            OpenConnection();
+            cmd = new SqlCommand();
+            cmd.CommandText = spName;
+            cmd.CommandType = CommandType.StoredProcedure;
+            foreach (SqlParameter p in param)
+            {
+                cmd.Parameters.Add(p);
+            }
+            cmd.Connection = con;
+            adaptor = new SqlDataAdapter(cmd);
+            ds = new DataSet();
+            adaptor.Fill(ds);
+            CloseConnection();
+            return ds;
+        }
         protected int ExecuteNonQueryUsingQuery(string query, List<SqlParameter> param)
         {
             int result = 0;
@@ -67,7 +85,7 @@ namespace DataAccessLayer
             result = cmd.ExecuteNonQuery();
             CloseConnection();
             return result;
-        }
+        }      
         protected DataSet GetDataSetFromDBWithSP(string spName, List<SqlParameter> param)
         {
             int result = 0;
@@ -79,7 +97,7 @@ namespace DataAccessLayer
             {
                 cmd.Parameters.Add(p);
             }
-            cmd.Connection = con;
+            cmd.Connection = con;          
             adaptor = new SqlDataAdapter(cmd);
             ds = new DataSet();
             adaptor.Fill(ds);
@@ -113,6 +131,18 @@ namespace DataAccessLayer
             CloseConnection();
             return dt;
         }
+        public DateTime? ConvertDBDatetime(object obj)
+        {
+
+            if (obj != DBNull.Value)
+            {
+                return Convert.ToDateTime(obj);
+            }
+            else
+                return null;
+        }
 
     }
 }
+
+

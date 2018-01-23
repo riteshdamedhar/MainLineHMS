@@ -23,7 +23,10 @@ namespace HMS.Doctor
 
         protected void grdOPDList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "AddPresc")
+            {
+                Response.Redirect("~/Doctor/AddPrescription.aspx?Id=" + e.CommandArgument);
+            }
         }
     }
 }

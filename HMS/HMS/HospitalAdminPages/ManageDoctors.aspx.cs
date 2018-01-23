@@ -5,34 +5,58 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
-using System.Data;
+using EntityLayer;
+using BusinessLayer;
 
 namespace HMS.HospitalAdmin
 {
     public partial class ManageDoctors : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            {
+                FillGridView();
+            }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection();
-            con.ConnectionString = @"Data Source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True";
+            DoctorDetail Doctor = new DoctorDetail();
+            Doctor.DoctorName = txtDoctorName.Text;
+            Doctor.DoctorAddress = txtDoctorAddress.Text;
+            Doctor.ContactNumber = txtContactnumber.Text;
+            Doctor.Email = txtEmail.Text;
+            Doctor.Education = txtEducation.Text;
+            Doctor.Specialization = txtSpecialization.Text;
+            Doctor.Experience = txtExperience.Text;
+            Doctor.IsActive = 1;
+            Doctor.JoiningDate = txtJoiningDate.Text;
+            Doctor.LeavingDate = txtLeavingDate.Text;
+            Doctor.CreatedBy = "Vasanthi";
+            Doctor.ModifiedBy = "System";
 
-            con.Open();
+            if (hdnOperationType.Value == "Update")
+            {
+                Doctor.PK_Doctor = Convert.ToInt32(hdnIDPK.Value);
+            }
 
-            string query = "insert into tblDoctorDetails(DoctorName, DoctorAddress, ContactNumber, Email, Education, Specialization, Experience, JoiningDate, LeavingDate)values('" + txtDoctorName.Text + "', '" + txtDoctorAddress.Text + "', '" + txtContactnumber.Text + "', '" + txtEmail.Text + "', '" + txtEducation.Text + "', '" + txtSpecialization.Text + "', '" + txtExperience.Text + "', '" + txtJoiningDate.Text + "', '" + txtLeavingDate.Text + "')";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = query;
+            DoctorBAO BAO = new DoctorBAO();
+            BAO.SaveDoctorDetail(Doctor);
 
-            cmd.ExecuteNonQuery();
 
-            con.Close();
+            lblMessage.Text = "Save Successfully";
+            ClearForm();
 
-            lblMessage.Text = "saved Successfully";
+            FillGridView();
+
+            pnlGrid.Visible = true;
+            pnlAddForm.Visible = false;
+        }
+
+
+        public void ClearForm()
+        {
             txtDoctorName.Text = string.Empty;
             txtDoctorAddress.Text = string.Empty;
             txtContactnumber.Text = string.Empty;
@@ -43,5 +67,61 @@ namespace HMS.HospitalAdmin
             txtJoiningDate.Text = string.Empty;
             txtLeavingDate.Text = string.Empty;
         }
+        public void FillGridView()
+        {
+            DoctorBAO BAO = new DoctorBAO();
+            grdGridView.DataSource = BAO.GetDoctorDetails();
+            grdGridView.DataBind();
+        }
+
+        public void btnAdd_Click(Object sender, EventArgs e)
+        {
+            pnlAddForm.Visible = true;
+            pnlGrid.Visible = false;
+            ClearForm();
+            hdnOperationType.Value = "Insert";
+        }
+
+        public void btnCancel_Click(object sender, EventArgs e)
+        {
+            pnlAddForm.Visible = false;
+            pnlGrid.Visible = true;
+            ClearForm();
+        }
+
+        protected void grdGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "EditData")
+            {
+                hdnOperationType.Value = "Update";
+                int Id = Convert.ToInt32(e.CommandArgument);
+                hdnIDPK.Value = Id.ToString();
+                DoctorBAO BAO = new DoctorBAO();
+                DoctorDetail obj = BAO.GetDoctorDetailsById(Id);
+                if (obj != null)
+                {
+                    txtDoctorName.Text = obj.DoctorName;
+                    txtContactnumber.Text = obj.ContactNumber;
+                    txtDoctorAddress.Text = obj.DoctorAddress;
+                    txtJoiningDate.Text = obj.JoiningDate;
+                    txtLeavingDate.Text = obj.LeavingDate;
+                    txtEducation.Text = obj.Education;
+
+                    txtEmail.Text = obj.Email;
+                    txtSpecialization.Text = obj.Specialization;
+                    txtExperience.Text = obj.Experience;
+                }
+                pnlAddForm.Visible = true;
+                pnlGrid.Visible = false;
+            }
+            if (e.CommandName == "DeleteData")
+            {
+                int id = Convert.ToInt32(e.CommandArgument);
+                DoctorBAO BAO = new DoctorBAO();
+                BAO.DeleteDoctorDetail(id);
+                FillGridView();
+            }
+        }
+
     }
 }

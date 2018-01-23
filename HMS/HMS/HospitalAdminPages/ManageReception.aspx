@@ -18,10 +18,7 @@
         </tr>
         <tr >  
             <td  >  Date of Birth   </td> 
-            <td> <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" Width="200"></asp:TextBox></td>
-             <td>                
-                <asp:Calendar ID="Calendar1" runat="server"></asp:Calendar>                  
-            </td>          
+            <td> <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" Width="200"></asp:TextBox></td>       
         </tr>
 
         <tr>
@@ -88,9 +85,23 @@
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
-
         </asp:GridView>
     </asp:Panel>
     <asp:HiddenField ID="hdnOperationType" runat="server" />
     <asp:HiddenField ID="hdnIDPK" runat="server" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+        
+            $("[id$=txtDOB]").datepicker({
+              showOn:'button',
+              changeYear: true,
+              changeMonth: true,
+              buttonImageOnly: true,
+              buttonImage: '../Images/Calender.png',
+              maxDate: new Date(),
+              altFormat: "dd-mm-yy",
+              dateFormat:'dd-mm-yy'
+            });          
+        });
+    </script>
 </asp:Content>
