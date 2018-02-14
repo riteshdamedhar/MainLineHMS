@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EntityLayer;
 
 namespace HMS
 {
@@ -11,7 +12,25 @@ namespace HMS
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["UserObject"] != null)
+            {
+                UserLogin user = (UserLogin)Session["UserObject"];
+                if (user.TypeOfUser == UserType.HospitalAdmin)
+                {
+                    lblUsername.Text = user.FullName;
+                }
+                else
+                {
+                    Session.Clear();
+                    Session.Abandon();
+                    Session.RemoveAll();
+                    Response.Redirect("~/Login.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
         }
 
         protected void btnLogOut_Click(object sender, EventArgs e)
@@ -21,6 +40,12 @@ namespace HMS
             Session.Abandon();
             Session.RemoveAll();
             Response.Redirect("~/Login.aspx");
+        }
+
+        protected void Timer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString();
+
         }
     }
 }

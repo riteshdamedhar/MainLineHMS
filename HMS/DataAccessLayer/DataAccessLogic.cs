@@ -1,5 +1,7 @@
-﻿using System;
+﻿using EntityLayer;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,6 +9,7 @@ using System.Text;
 
 namespace DataAccessLayer
 {
+    
     public class DataAccessLogic
     {
         SqlConnection con;
@@ -17,8 +20,8 @@ namespace DataAccessLayer
 
         protected SqlConnection OpenConnection()
         {
-
-            con = new SqlConnection(@"Data Source=PERSONAL;Initial Catalog=HMSdb;Integrated Security=True");
+            string str = ConfigurationManager.ConnectionStrings["ConStr"].ToString();
+            con = new SqlConnection(str);
             if (con.State != ConnectionState.Open)
             {
                 con.Open();
@@ -50,6 +53,29 @@ namespace DataAccessLayer
             cmd.Connection = con;
             result = cmd.ExecuteNonQuery();
             CloseConnection();
+            return result;
+        }
+        protected DbOutput ExecuteNonQueryUsingSPOut(string spName, List<SqlParameter> param)
+        {
+            DbOutput result = new DbOutput();
+            OpenConnection();
+            cmd = new SqlCommand();
+            cmd.CommandText = spName;
+            cmd.CommandType = CommandType.StoredProcedure;
+            foreach (SqlParameter p in param)
+            {
+                cmd.Parameters.Add(p);
+            }
+            SqlParameter oParam = new SqlParameter();
+            oParam.ParameterName = "@OutPutKey";
+            oParam.Direction = ParameterDirection.Output;
+            oParam.DbType = DbType.Int32;
+            cmd.Parameters.Add(oParam);
+
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            CloseConnection();
+            result.DbVal = Convert.ToInt32(oParam.Value);
             return result;
         }
         protected DataSet GetDataTablefromDBwithSP(string spName, List<SqlParameter> param)
@@ -85,7 +111,7 @@ namespace DataAccessLayer
             result = cmd.ExecuteNonQuery();
             CloseConnection();
             return result;
-        }      
+        }
         protected DataSet GetDataSetFromDBWithSP(string spName, List<SqlParameter> param)
         {
             int result = 0;
@@ -97,7 +123,7 @@ namespace DataAccessLayer
             {
                 cmd.Parameters.Add(p);
             }
-            cmd.Connection = con;          
+            cmd.Connection = con;
             adaptor = new SqlDataAdapter(cmd);
             ds = new DataSet();
             adaptor.Fill(ds);

@@ -49,6 +49,15 @@ namespace HMS.Doctor {
         protected global::System.Web.UI.WebControls.Label lblAge;
         
         /// <summary>
+        /// hdnPkId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnPkId;
+        
+        /// <summary>
         /// lstMedcines control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace HMS.Doctor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdSelectedMedicine;
+        
+        /// <summary>
+        /// txtRemark control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRemark;
         
         /// <summary>
         /// btnSave control.

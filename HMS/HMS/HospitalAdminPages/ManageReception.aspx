@@ -6,30 +6,43 @@
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div style="margin-top:10px">
+    <asp:Label ID="lblRecPage" runat="server" Text="Reception Page" CssClass="label label-info" Font-Size="20px"></asp:Label>
+    </div> <br />
     <asp:Panel ID="pnlAddForm" runat="server" GroupingText ="Add Item" Visible="false">
-    <table class="table table-hover">
+    <table class="table">
         <tr>
-            <td class="auto-style1"> Full Name
+            <td>
+                 Full Name
             </td>
             <td>
-                <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox>
-            </td> 
+                <asp:TextBox ID="txtFullName" runat="server" CssClass="form-control"></asp:TextBox>       
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="R" ControlToValidate="txtFullName" runat="server" ErrorMessage="Full name is Required" Style="color: red; font-style: italic; font-size: 12px"></asp:RequiredFieldValidator>               
+           </td> 
         </tr>
         <tr >  
-            <td  >  Date of Birth   </td> 
-            <td> <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control" Width="200"></asp:TextBox></td>       
+            <td> 
+                 Date of Birth  
+            </td> 
+            <td> <asp:TextBox ID="txtDOB" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="R" ControlToValidate="txtDOB" runat="server" ErrorMessage="Date of Birth is Required" Style="color: red; font-style: italic; font-size: 12px"></asp:RequiredFieldValidator>                
+            </td>  
+            
         </tr>
-
         <tr>
-            <td class="auto-style1">  AGE
+            <td> 
+                 AGE
             </td>
             <td>
                 <asp:TextBox ID="txtAGE" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="R" ControlToValidate="txtAge" runat="server" ErrorMessage="Age is Required" Style="color: red; font-style: italic; font-size: 12px"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td class="auto-style1">  Gender
+            <td>
+               Gender
             </td>
             <td>
                 <asp:RadioButtonList ID="rbtGender" runat="server" RepeatDirection="Horizontal">
@@ -39,39 +52,56 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style1">  Address
+            <td>
+               Address
             </td>
             <td>
                 <asp:TextBox ID="txtAddress" runat="server" CssClass="form-control" TextMode="MultiLine" Rows="3"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ValidationGroup="R" ControlToValidate="txtAddress" runat="server" ErrorMessage="Address is Required" Style="color: red; font-style: italic; font-size: 12px"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td class="auto-style1">  Mobile Number
+            <td> 
+                Mobile Number
             </td>
             <td>
                 <asp:TextBox ID="txtMobileNumber" runat="server" CssClass="form-control"></asp:TextBox>
+                  <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Please enter correct contact number-10 Digit" ControlToValidate="txtMobileNumber" ValidationGroup="R" MaximumValue="9999999999" MinimumValue="1000000000" Display="Dynamic"></asp:RangeValidator>
+                  <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="txtMobileNumber" runat="server" ErrorMessage="Mobile number is Required" ValidationGroup="R" Style="color: red; font-style: italic; font-size: 12px" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
-            <td class="auto-style1">  Email
+            <td> 
+                Email
             </td>
             <td>
                 <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" ValidationGroup="R" ControlToValidate="txtEmail" runat="server" ErrorMessage="Email is Required" Style="color: red; font-style: italic; font-size: 12px"></asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                Password
+            </td>
+            <td>
+                <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" ValidationGroup="R" ControlToValidate="txtPassword" runat="server" ErrorMessage="Password is Required" Style="color: red; font-style: italic; font-size: 12px"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>          
             <td>
-                <asp:Button ID="btnSave" runat="server" Text="SAVE" OnClick="btnSave_Click"/>
-                <asp:Button ID="btnCancel" runat="server" Text="CANCEL" OnClick="btnCancel_Click"/>
+                <asp:Button ID="btnSave" runat="server" Text="SAVE" CssClass="btn btn-primary" ValidationGroup="R" OnClick="btnSave_Click"/>
+                <asp:Button ID="btnCancel" runat="server" Text="CANCEL" CssClass="btn btn-primary" OnClick="btnCancel_Click"/>
                 <br />
                 <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
             </td>
         </tr>
     </table>
-    </asp:Panel>
-    <asp:Panel ID="pnlGrid" runat="server" GroupingText="List of Items">
-         <asp:Button ID="btnAdd" runat="server" Text="Add New Entry" Onclick="btnAdd_Click"/><br />
-        <asp:GridView ID="grdGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="PK_Reception" OnRowCommand="grdGridView_RowCommand">
+    </asp:Panel><br />
+
+         <asp:Panel ID="pnlGrid" runat="server" GroupingText="List of Items">
+         <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-primary"  Text="Add New Entry" Onclick="btnAdd_Click"/><br />
+        <asp:GridView ID="grdGridView" runat="server" AutoGenerateColumns="False" DataKeyNames="PK_Reception" OnRowCommand="grdGridView_RowCommand" CssClass="table">
 
             <Columns>
                 <asp:BoundField DataField="FullName" HeaderText="Name" />
@@ -105,3 +135,5 @@
         });
     </script>
 </asp:Content>
+
+ 

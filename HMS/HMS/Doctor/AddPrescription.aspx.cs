@@ -15,10 +15,13 @@ namespace HMS.Doctor
         List<Medicine> selectedMedicineList = new List<Medicine>();
         MedicineBAO obj = new MedicineBAO();
         List<Medicine> selectedList;
+        UserLogin user;
         protected void Page_Load(object sender, EventArgs e)
         {
+            user = (UserLogin)Session["UserObject"];
             if (!IsPostBack)
             {
+
 
                 if (Request.QueryString["Id"] != null)
                 {
@@ -64,6 +67,7 @@ namespace HMS.Doctor
                 lblPatientName.Text = p.Name;
                 lblGender.Text = p.Gender;
                 lblAge.Text = p.Age.ToString();
+                hdnPkId.Value = p.PatientId.ToString();
             }
             else
             {
@@ -201,6 +205,46 @@ namespace HMS.Doctor
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Doctor/OPDPatient.aspx");
+        }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            //write logic to save Prescription
+            //SavePrescription()
+
+
+            //save Prescription
+            //save PrescriptionDetails
+            DoctorBAO bao = new DoctorBAO();
+            DbOutput result = bao.SavePrescription(Convert.ToInt32(hdnPkId.Value), user.Id, txtRemark.Text);
+            //result.DbVal
+
+            foreach (GridViewRow row in grdSelectedMedicine.Rows)
+            {
+                //PK_Medicineid
+                //chkMonrning
+                //chkAfternoon
+                //chkNight
+
+                int medicineId = Convert.ToInt32(grdSelectedMedicine.DataKeys[row.RowIndex]["PK_Medicineid"]);
+                CheckBox m = row.FindControl("chkMonrning") as CheckBox;
+                CheckBox a = row.FindControl("chkAfternoon") as CheckBox;
+                CheckBox n = row.FindControl("chkNight") as CheckBox;
+
+                int isMo = 0;
+                int isAf = 0;
+                int isNi = 0;
+                if (m.Checked)
+                    isMo = 1;
+                if (a.Checked)
+                    isAf = 1;
+                if (n.Checked)
+                    isNi = 1;
+
+                bao.SavePrescriptionDetails(result.DbVal, medicineId, isMo, isAf, isNi, "");
+                
+            }
+            Page.ClientScript.RegisterStartupScript(Page.GetType(), "Failuer", "alert('Prescription Saved Successfully')", true);
         }
     }
 }

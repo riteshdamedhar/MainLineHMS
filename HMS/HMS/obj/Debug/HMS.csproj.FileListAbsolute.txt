@@ -15,3 +15,17 @@ C:\GitHubSolutions\HMSProject\HMS\HMS\bin\EntityLayer.pdb
 C:\GitHubSolutions\HMSProject\HMS\HMS\obj\Debug\HMS.csprojResolveAssemblyReference.cache
 C:\GitHubSolutions\HMSProject\HMS\HMS\obj\Debug\HMS.dll
 C:\GitHubSolutions\HMSProject\HMS\HMS\obj\Debug\HMS.pdb
+C:\GitHubSolutions\HMSProject\HMS\HMS\obj\Debug\RdlCompile.cache
+C:\GitHubSolutions\HMSProject\HMS\HMS\obj\Debug\RdlCompile.compiled
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\Microsoft.ReportViewer.WebForms.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\Microsoft.SqlServer.Types.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\de\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\es\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\fr\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\it\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\ja\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\ko\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\pt\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\ru\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\GitHubSolutions\HMSProject\HMS\HMS\bin\zh-Hant\Microsoft.SqlServer.Types.resources.dll

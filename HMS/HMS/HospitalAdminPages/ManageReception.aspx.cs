@@ -33,6 +33,7 @@ namespace HMS.HospitalAdmin
             Rec.MobileNumber = txtMobileNumber.Text;
             Rec.Email = txtEmail.Text;
             Rec.IsActive = 1;
+            Rec.Password = txtPassword.Text;
             Rec.CreatedBY = "Samyu";
             Rec.ModifiedBy = "System";
             Rec.FK_HospitalId = Convert.ToInt32(Session["HospitalId"]);
@@ -59,11 +60,13 @@ namespace HMS.HospitalAdmin
             txtMobileNumber.Text = string.Empty;
             txtEmail.Text = string.Empty;
             txtAddress.Text = string.Empty;
+            txtPassword.Text = string.Empty;
         }
         public void FillGridView()
         {
             ReceptionBAO BAO = new ReceptionBAO();
-            grdGridView.DataSource = BAO.GetReceptionDetails();
+            int hospitalid = Convert.ToInt32(Session["HospitalId"]);
+            grdGridView.DataSource = BAO.GetReceptionDetails(hospitalid);
             grdGridView.DataBind();
         }
         public void btnAdd_Click(Object sender, EventArgs e)
@@ -91,8 +94,13 @@ namespace HMS.HospitalAdmin
                 if (obj!=null)
                 {
                     txtFullName.Text = obj.FullName;
+                    txtAGE.Text = Convert.ToString(obj.Age);
+                    txtDOB.Text = obj.DOB;
+                    txtAddress.Text = obj.Address;
+                    rbtGender.SelectedValue = obj.Gender;
                     txtMobileNumber.Text = obj.MobileNumber;
                     txtEmail.Text = obj.Email;
+                    txtPassword.Text = obj.Password;
                 }
                 pnlAddForm.Visible = true;
                 pnlGrid.Visible = false;

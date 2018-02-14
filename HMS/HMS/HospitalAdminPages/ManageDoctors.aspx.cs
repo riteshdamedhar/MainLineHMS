@@ -33,6 +33,7 @@ namespace HMS.HospitalAdmin
             Doctor.IsActive = 1;
             Doctor.JoiningDate = txtJoiningDate.Text;
             Doctor.LeavingDate = txtLeavingDate.Text;
+            Doctor.Password = txtPassword.Text;
             Doctor.CreatedBy = "Vasanthi";
             Doctor.ModifiedBy = "System";
 
@@ -64,13 +65,14 @@ namespace HMS.HospitalAdmin
             txtEducation.Text = string.Empty;
             txtSpecialization.Text = string.Empty;
             txtExperience.Text = string.Empty;
+            txtPassword.Text = string.Empty;
             txtJoiningDate.Text = string.Empty;
             txtLeavingDate.Text = string.Empty;
         }
         public void FillGridView()
         {
-            DoctorBAO BAO = new DoctorBAO();
-            grdGridView.DataSource = BAO.GetDoctorDetails();
+            DoctorBAO h = new DoctorBAO();
+            grdGridView.DataSource = h.GetDoctorDetails();
             grdGridView.DataBind();
         }
 
@@ -106,7 +108,7 @@ namespace HMS.HospitalAdmin
                     txtJoiningDate.Text = obj.JoiningDate;
                     txtLeavingDate.Text = obj.LeavingDate;
                     txtEducation.Text = obj.Education;
-
+                    txtPassword.Text = obj.Password;
                     txtEmail.Text = obj.Email;
                     txtSpecialization.Text = obj.Specialization;
                     txtExperience.Text = obj.Experience;

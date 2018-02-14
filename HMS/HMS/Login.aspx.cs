@@ -20,15 +20,38 @@ namespace HMS
         {
             if (ddlUserType.SelectedValue == "Doctor")
             {
-                //Yet to Implement to check from DB, for now just directly redirecting without check for Doctor
-                Response.Redirect("~/Doctor/DoctorHome.aspx");
+                //txtUserName.Text
+                //txtPassword.Text
+                DoctorBAO obj = new DoctorBAO();
+                DoctorDetail Doctor = obj.GetDoctorDetailByEmail(txtUserName.Text);
+                if (Doctor != null)
+                {
+                    if (Doctor.Password == txtPassword.Text)
+                    {
+                        UserLogin user = new UserLogin();
+                        user.UserName = Doctor.Email;
+                        user.FullName = Doctor.DoctorName;
+                        user.Id = Doctor.PK_Doctor;
+                        user.Password = Doctor.Password;
+                        user.TypeOfUser = UserType.DoctorUser;
+                        Session["UserObject"] = user;
+                        Session["UserName"] = user.UserName;
+                        Session["HospitalId"] = Doctor.FK_HospitalId;
+                        Response.Redirect("~/Doctor/DoctorHome.aspx");
+                    }
+                    else
+                    {
+                        Page.ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Invalid User name password')", true);
+                    }
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "Message", "alert('Invalid User name password')", true);
+                }
+
             }
             else if (ddlUserType.SelectedValue == "Reception")
             {
-                // Implemented Login check for Reception
-
-                //txtUserName.Text
-                //txtPassword.Text
                 ReceptionBAO obj = new ReceptionBAO();
                 ReceptionDetail reception = obj.GetReceptionByEmail(txtUserName.Text);
                 if (reception != null)

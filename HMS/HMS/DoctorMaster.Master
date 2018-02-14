@@ -12,6 +12,17 @@
     <script src="../JS/bootstrap.min.js"></script>
     <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
+    <script type="text/javascript">
+        //function buttonClick(buttonId)
+        //{
+        // $("[id$=" + buttonId + "]").click();
+        // }
+        function buttonClickLogOut()
+        {
+            $("[id$=btnLogOut]").click();
+        }
+
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -24,11 +35,12 @@
                         <a class="navbar-brand" href="#" style="color: white">Hospital management</a>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-
+                        <li id="liProfile"><a href="#" style="color: white">Hi, <asp:Label ID="lblUsername" runat="server"></asp:Label></a></li>
                         <li id="liHome"><a href="../Doctor/DoctorHome.aspx" style="color: white">HOME</a></li>
                         <li id="liRegisterPatient"><a href="../Doctor/OPDPatient.aspx" style="color: white">OPD LIST</a></li>
-                        <li id="liLogout"><a href="#" style="color: white">LOGOUT</a></li>
-                    </ul>
+                        <li id="liLogout"><a href="#" onclick="buttonClickLogOut()" style="color: white">LOGOUT</a></li>
+                        <asp:Button ID="btnLogOut" runat="server" Text="" style="display:none" OnClick="btnLogOut_Click"/>
+                   </ul>
                 </div>
             </nav>
             <!-- end #menu -->

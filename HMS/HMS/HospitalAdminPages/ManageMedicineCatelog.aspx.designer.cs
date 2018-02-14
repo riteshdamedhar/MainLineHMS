@@ -13,6 +13,15 @@ namespace HMS.HospitalAdmin {
     public partial class ManageMedicineCatelog {
         
         /// <summary>
+        /// lblMedCatlog control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMedCatlog;
+        
+        /// <summary>
         /// pnlAddForm control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace HMS.HospitalAdmin {
         protected global::System.Web.UI.WebControls.TextBox txtMedicineName;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// txtMedicineCategory control.
         /// </summary>
         /// <remarks>
@@ -40,6 +58,15 @@ namespace HMS.HospitalAdmin {
         protected global::System.Web.UI.WebControls.TextBox txtMedicineCategory;
         
         /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
         /// txtRemark control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace HMS.HospitalAdmin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRemark;
+        
+        /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
         /// btnSave control.

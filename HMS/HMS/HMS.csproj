@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -118,8 +119,10 @@
     <Content Include="Reception\OPDPatientList.aspx" />
     <Content Include="Reception\PatientList.aspx" />
     <Content Include="Reception\PatientRegistration.aspx" />
+    <Content Include="Reception\PrescriptionList.aspx" />
     <Content Include="Reception\ReceptionHome.aspx" />
     <Content Include="Reception\ReceptionProfile.aspx" />
+    <Content Include="Reports\ShowReport.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -188,6 +191,11 @@
     </Compile>
     <Compile Include="Doctor\OPDPatient.aspx.designer.cs">
       <DependentUpon>OPDPatient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HMSdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HMSdbDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="HospitalAdmin.Master.cs">
       <DependentUpon>HospitalAdmin.Master</DependentUpon>
@@ -295,6 +303,13 @@
     <Compile Include="Reception\PatientRegistration.aspx.designer.cs">
       <DependentUpon>PatientRegistration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reception\PrescriptionList.aspx.cs">
+      <DependentUpon>PrescriptionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reception\PrescriptionList.aspx.designer.cs">
+      <DependentUpon>PrescriptionList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reception\ReceptionHome.aspx.cs">
       <DependentUpon>ReceptionHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -308,6 +323,13 @@
     </Compile>
     <Compile Include="Reception\ReceptionProfile.aspx.designer.cs">
       <DependentUpon>ReceptionProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ShowReport.aspx.cs">
+      <DependentUpon>ShowReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ShowReport.aspx.designer.cs">
+      <DependentUpon>ShowReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
@@ -354,6 +376,17 @@
     <Content Include="HospitalAdmin.Master" />
     <Content Include="DoctorMaster.Master" />
     <Content Include="ApplicationAdminMaster.Master" />
+    <Content Include="HMSdbDataSet.xsc">
+      <DependentUpon>HMSdbDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="HMSdbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HMSdbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="HMSdbDataSet.xss">
+      <DependentUpon>HMSdbDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\LocalMachine.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -378,6 +411,9 @@
       <Project>{7602a96a-d69a-4d85-831d-08cd5349b2e4}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\PrescriptionReport.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
